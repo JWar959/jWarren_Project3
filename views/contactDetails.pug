@@ -4,48 +4,49 @@ block content
     if error
         p(style='color: red')= error
 
-    h1 Contact Info
+    h1.text-primary.mb-3 Contact Info
     h2 #{contact.firstName} #{contact.lastName}
     hr
-    a(href='/') Back to list
-    br
-
-    p
-        strong Phone Number: 
-        span  #{contact.phone}
+    a.btn.btn-secondary.mb-3(href='/') Back to list
     
-    if contact.contactByPhone === 1
-        i May be contacted by phone or text
-    else
-        i May NOT be contacted by phone or text    
-    hr
-
-    div
-        p
-            strong Email address
-            span  #{contact.email}
-        p
-            if contact.contactByEmail === 1
-                i May be contacted by email
-            else
-                i May NOT be contacted by email 
-        hr
-    div
-        p 
-            b Address:    
-        span #{contact.street}
-        br 
-        span #{contact.city}, #{contact.state} #{contact.zip}
-        br
-        span #{contact.country}
-        br
-        p
-            if contact.contactByMail === 1
-                i May be contacted by mail
-            else
-                i May NOT be contacted by mail  
+    div.container
+        div.row.mb-3
+            div.col-md-6
+                p
+                    strong Phone Number:
+                    span #{contact.phone}
+                p
+                    if contact.contactByPhone === 1
+                        i.text-success May be contacted by phone or text
+                    else
+                        i.text-danger May NOT be contacted by phone or text
+            div.col-md-6
+                p
+                    strong Email Address:
+                    span #{contact.email}
+                p
+                    if contact.contactByEmail === 1
+                        i.text-success May be contacted by email
+                    else
+                        i.text-danger May NOT be contacted by email
         hr
 
-    a(href=`/contact/${contact.id}/edit`) Edit contact
-    br
-    a(href=`/contact/${contact.id}/delete`) Delete contact
+        div.row.mb-3
+            div.col-md-6
+                p
+                    b Address:
+                p
+                    span #{contact.street}
+                    br
+                    span #{contact.city}, #{contact.state} #{contact.zip}
+                    br
+                    span #{contact.country}
+                p
+                    if contact.contactByMail === 1
+                        i.text-success May be contacted by mail
+                    else
+                        i.text-danger May NOT be contacted by mail
+        hr
+    div.d-flex.gap-3
+    a.btn.me-2.btn-primary(href=`/contact/${contact.id}/edit`) Edit contact
+    a.btn.btn-danger(href=`/contact/${contact.id}/delete`) Delete contact
