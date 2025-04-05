@@ -1,58 +1,65 @@
 extends layout.pug
 
 block content
-    br
-    h1 Create Contact
-
-    hr
-    form(action = '/newContact' method = 'post' )
-        p Basic Info
-        label(for = 'firstNameCreate') First Name:
-        input( type = "text" name = 'firstNameCreate' required)
-
-        label( for = 'lastNameCreate') Last Name:
-        input( type = 'text', name = 'lastNameCreate' required)
-
-        label( for = 'phoneNumCreate') Phone:
-        input( type = 'text' name = 'phoneNumCreate' required)
-
-        label( for = 'emailCreate') Email:
-        input( type = 'input' name = 'emailCreate' required)
-    
+    div.container.mt-4
+        h1.text-primary Create Contact
         hr
-        br
-        hr
+        form(action='/newContact', method='post')
+            div.container
+                div.row.mb-3
+                    div.col-md-6
+                        div.mb-3
+                            label.form-label(for='firstNameCreate') First Name:
+                            input.form-control(type='text' name='firstNameCreate' placeholder='Enter first name' required)
 
-        h2 Address
-        label( for = 'streetCreate') Street:
-        input( type = 'text' name = 'streetCreate' required)
+                        div.mb-3
+                            label.form-label(for='lastNameCreate') Last Name:
+                            input.form-control(type='text' name='lastNameCreate' placeholder='Enter last name' required)
 
-        label( for = 'cityCreate') City:
-        input( type = 'text' name = 'cityCreate' required)
+                        div.mb-3
+                            label.form-label(for='phoneNumCreate') Phone:
+                            input.form-control(type='text' name='phoneNumCreate' placeholder='Enter phone number' required)
 
-        label(for = 'stateCreate') State:
-        input( type = 'text' name = 'stateCreate' required)
+                        div.mb-3
+                            label.form-label(for='emailCreate') Email:
+                            input.form-control(type='text' name='emailCreate' placeholder='Enter email' required)
 
-        label( for = 'zipCreate') Zip :
-        input(type = 'text' name = 'zipCreate' required)
+                    div.col-md-6
+                        div.mb-3
+                            label.form-label(for='streetCreate') Street:
+                            input.form-control(type='text' name='streetCreate' placeholder='Enter street address' required)
 
-        label(for = 'countryCreate') Country:
-        input( type = 'text' name = 'countryCreate' required)
-        
-        hr
-        br
-        hr
+                        div.mb-3
+                            label.form-label(for='cityCreate') City:
+                            input.form-control(type='text' name='cityCreate' placeholder='Enter city' required)
 
-        h2 Contact Preferences 
-        input(type ='checkbox' name = 'phoneCheck' checked='true') 
-        span Contact by phone
-        br
-        input(type = 'checkbox' name = 'emailCheck' checked='true') 
-        span Contact by email
-        br
-        input(type = 'checkbox' name = 'mailCheck' checked='true') 
-        span Contact by mail
-        hr
+                        div.mb-3
+                            label.form-label(for='stateCreate') State:
+                            input.form-control(type='text' name='stateCreate' placeholder='Enter state' required)
 
-        button(type = 'submit' name='createSubmit') Add 
-    a(href = '/') Cancel   
+                        div.mb-3
+                            label.form-label(for='zipCreate') Zip:
+                            input.form-control(type='text' name='zipCreate' placeholder='Enter zip code' required)
+
+                        div.mb-3
+                            label.form-label(for='countryCreate') Country:
+                            input.form-control(type='text' name='countryCreate' placeholder='Enter country' required)
+
+                hr
+                h2.text-secondary Contact Preferences 
+                div.form-check.mb-2
+                    input.form-check-input(type='checkbox' name='phoneCheck' checked='true' id='phoneCheck')
+                    label.form-check-label(for='phoneCheck') Contact by phone
+
+                div.form-check.mb-2
+                    input.form-check-input(type='checkbox' name='emailCheck' checked='true' id='emailCheck')
+                    label.form-check-label(for='emailCheck') Contact by email
+
+                div.form-check.mb-2
+                    input.form-check-input(type='checkbox' name='mailCheck' checked='true' id='mailCheck')
+                    label.form-check-label(for='mailCheck') Contact by mail
+
+                hr
+                div.d-flex.justify-content-start.gap-2
+                    button.btn.btn-primary(type='submit' name='createSubmit') Add
+                    a.btn.btn-secondary(href='/') Cancel
