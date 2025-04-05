@@ -1,0 +1,51 @@
+extends layout.pug
+
+block content
+    if error
+        p(style='color: red')= error
+
+    h1 Contact Info
+    h2 #{contact.firstName} #{contact.lastName}
+    hr
+    a(href='/') Back to list
+    br
+
+    p
+        strong Phone Number: 
+        span  #{contact.phone}
+    
+    if contact.contactByPhone === 1
+        i May be contacted by phone or text
+    else
+        i May NOT be contacted by phone or text    
+    hr
+
+    div
+        p
+            strong Email address
+            span  #{contact.email}
+        p
+            if contact.contactByEmail === 1
+                i May be contacted by email
+            else
+                i May NOT be contacted by email 
+        hr
+    div
+        p 
+            b Address:    
+        span #{contact.street}
+        br 
+        span #{contact.city}, #{contact.state} #{contact.zip}
+        br
+        span #{contact.country}
+        br
+        p
+            if contact.contactByMail === 1
+                i May be contacted by mail
+            else
+                i May NOT be contacted by mail  
+        hr
+
+    a(href=`/contact/${contact.id}/edit`) Edit contact
+    br
+    a(href=`/contact/${contact.id}/delete`) Delete contact

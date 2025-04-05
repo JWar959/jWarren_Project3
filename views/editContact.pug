@@ -1,0 +1,48 @@
+extends layout.pug
+
+block content
+   if error
+      p(style='color: red')= error
+
+   h1 Edit Contact 
+   form(action=`/contact/${contact.id}/edit` method='post')
+      label(for='firstName') First Name
+      input(type='text' name = 'firstName' value = contact.firstName required)
+
+      label(for='lastName') Last Name
+      input(type = 'text' name = 'lastName' value = contact.lastName required)
+
+      label(for='phone') Phone
+      input(type = 'text' name = 'phone' value = contact.phone required)
+
+      label(for='email') Email
+      input(type = 'text' name='email' value = contact.email required)
+
+      label(for = 'street') Street
+      input(type = 'text' name = 'street' value = contact.street)
+
+      label(for = 'city') City
+      input(type='text' name='city' value=contact.city)
+
+      label(for='state') State
+      input(type='text' name='state' value = contact.state)
+
+      label(for = 'zip') Zip Code
+      input(type = 'text' name='zip' value = contact.zip)
+
+      label(for='country') Country
+      input(type = 'text' name = 'country' value = contact.country)
+      hr
+
+      label(for='contactByEmail') Contact by Email
+      input(type='checkbox' name='contactByEmail' checked = (contact.contactByEmail===1))
+
+      label(for='contactByPhone') Contact by Phone
+      input(type = 'checkbox' name='contactByPhone' checked = (contact.contactByPhone === 1))
+
+      label(for='contactByMail') Contact by Mail
+      input(type='checkbox' name='contactByMail' checked=(contact.contactByMail === 1))
+      hr
+
+      button(type='submit') Update Contact
+      a(href='/') Cancel 

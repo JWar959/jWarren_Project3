@@ -1,0 +1,33 @@
+extends layout.pug
+
+block content
+    if error
+       p(style='color: red')= error
+
+    h1 Sign up
+    p Please select a username, and a password. Don't be shy about any password rules here, we don't really care much about protecting your information - so helloworld is just fine by us!
+    
+    form(action='/signup', method = 'post')
+        label(for='firstName') First Name
+        input(type="text" name="firstName")
+
+        label( for="lastName") Last Name 
+        input(type='text' name = 'lastName')
+        hr
+
+        label( for='usernameTemp') Username
+        input( type = 'text' name = 'usernameTemp')
+
+        label( for = 'passwordTemp') Password
+        input(type = 'password' name = 'passwordTemp')
+
+        label(for = 'confirmPassTemp') Confirm Password
+        input(type = 'password' name = 'confirmPassTemp')
+        hr
+
+        button(type = 'submit' name = 'newUserSubmit') Sign up
+    a(href='/') Nevermind
+    br
+    
+    span Already have an account? 
+    a(href = '/login') Sign in here!

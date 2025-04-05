@@ -1,0 +1,36 @@
+extends layout.pug
+
+block content
+    if error
+        p(style = "color: red")= error
+              
+    h1 Contact List
+    a( href = 'newContact') Create a new contact
+
+    table
+        thead
+            tr
+                th Name
+                th Phone
+                th Email
+                th Address
+                th Contact
+        tbody
+            each c in contacts
+                tr
+                    td 
+                        a(href = `/contact/${c.id}`) #{c.firstName} #{c.lastName}
+                    td #{c.phone}
+                    td #{c.email}
+                    td #{c.street}, #{c.city} #{c.state} #{c.zip} #{c.country}
+                    td
+                        label 
+                            input(type = 'checkbox', name = 'phoneCheckbox', checked = (c.contactByPhone === 1), disabled)
+                            | Phone
+                            br
+                        label
+                            input(type = 'checkbox', name = 'emailCheckbox', checked = (c.contactByEmail === 1), disabled)
+                            | Email
+                        label
+                            input(type = 'checkbox', name = 'mailCheckBox', checked = (c.contactByMail === 1), disabled)
+                            | Mail

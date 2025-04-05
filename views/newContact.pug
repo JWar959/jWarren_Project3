@@ -1,0 +1,58 @@
+extends layout.pug
+
+block content
+    br
+    h1 Create Contact
+
+    hr
+    form(action = '/newContact' method = 'post' )
+        p Basic Info
+        label(for = 'firstNameCreate') First Name:
+        input( type = "text" name = 'firstNameCreate' required)
+
+        label( for = 'lastNameCreate') Last Name:
+        input( type = 'text', name = 'lastNameCreate' required)
+
+        label( for = 'phoneNumCreate') Phone:
+        input( type = 'text' name = 'phoneNumCreate' required)
+
+        label( for = 'emailCreate') Email:
+        input( type = 'input' name = 'emailCreate' required)
+    
+        hr
+        br
+        hr
+
+        h2 Address
+        label( for = 'streetCreate') Street:
+        input( type = 'text' name = 'streetCreate' required)
+
+        label( for = 'cityCreate') City:
+        input( type = 'text' name = 'cityCreate' required)
+
+        label(for = 'stateCreate') State:
+        input( type = 'text' name = 'stateCreate' required)
+
+        label( for = 'zipCreate') Zip :
+        input(type = 'text' name = 'zipCreate' required)
+
+        label(for = 'countryCreate') Country:
+        input( type = 'text' name = 'countryCreate' required)
+        
+        hr
+        br
+        hr
+
+        h2 Contact Preferences 
+        input(type ='checkbox' name = 'phoneCheck' checked='true') 
+        span Contact by phone
+        br
+        input(type = 'checkbox' name = 'emailCheck' checked='true') 
+        span Contact by email
+        br
+        input(type = 'checkbox' name = 'mailCheck' checked='true') 
+        span Contact by mail
+        hr
+
+        button(type = 'submit' name='createSubmit') Add 
+    a(href = '/') Cancel   
