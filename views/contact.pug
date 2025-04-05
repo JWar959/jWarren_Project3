@@ -4,33 +4,30 @@ block content
     if error
         p(style = "color: red")= error
               
-    h1 Contact List
-    a( href = 'newContact') Create a new contact
+    div.d-flex.justify-content-between.align-items-center.mb-3
+        h2.text-primary.mb-0 Contact List
+    div.d-flex.justify-content-between.align-items-center.mb-4
+        a.btn.btn-primary(href='newContact') Create New Contact
 
-    table
-        thead
-            tr
-                th Name
-                th Phone
-                th Email
-                th Address
-                th Contact
-        tbody
+    div.container
+        ul.list-group
             each c in contacts
-                tr
-                    td 
-                        a(href = `/contact/${c.id}`) #{c.firstName} #{c.lastName}
-                    td #{c.phone}
-                    td #{c.email}
-                    td #{c.street}, #{c.city} #{c.state} #{c.zip} #{c.country}
-                    td
-                        label 
-                            input(type = 'checkbox', name = 'phoneCheckbox', checked = (c.contactByPhone === 1), disabled)
+                li.list-group-item-action.d-flex.justify-content-between.align-items-center-left.mb-2
+                    div
+                        a(href=`/contact/${c.id}`) #{c.firstName} #{c.lastName}
+                        br
+                        span.text-muted #{c.phone} | #{c.email}
+                        br
+                        span.text-muted #{c.street}, #{c.city} #{c.state} #{c.zip} #{c.country}
+                    div.d-none.d-sm-block.d-flex.flex-column
+                        label
+                            input(type='checkbox', name='phoneCheckbox', checked=(c.contactByPhone === 1), disabled)
                             | Phone
                             br
                         label
-                            input(type = 'checkbox', name = 'emailCheckbox', checked = (c.contactByEmail === 1), disabled)
+                            input(type='checkbox', name='emailCheckbox', checked=(c.contactByEmail === 1), disabled)
                             | Email
+                            br
                         label
-                            input(type = 'checkbox', name = 'mailCheckBox', checked = (c.contactByMail === 1), disabled)
+                            input(type='checkbox', name='mailCheckBox', checked=(c.contactByMail === 1), disabled)
                             | Mail
