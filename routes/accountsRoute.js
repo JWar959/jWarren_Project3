@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
             res.redirect('/');
         } else {
             // Incorrect password
-            res.render('login', { error: "Incorrect password. Please try again." });
+            res.render('login', { error: "Incorrect username/password. Please try again." });
         }
     } catch (error) {
         console.error('Error fetching user data:', error);

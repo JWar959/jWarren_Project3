@@ -8,13 +8,13 @@ html(lang="en")
             
         title Contact List
 
-        nav.navbar.navbar-expand-lg.navbar-light.bg-light.mb-3
+        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-3
             div.container-fluid
                 if user
                     a.navbar-brand(href='/') #{user.firstName} #{user.lastName}
-                    a.nav-link(href='/logout') Sign Out
+                    a.nav-link.text-white(href='/logout') Sign Out
                 else
-                    a.navbar-brand(href='/login') Sign in        
+                    a.navbar-brand.text-white(href='/login') Sign in        
         .container.mt-4
 
     body   

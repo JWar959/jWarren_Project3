@@ -1,27 +1,31 @@
 extends layout.pug
 
 block content
-    if created
-        p(style='color: green') #{created}
-    if error
-        p(style='color: red') #{error} 
-    if loggedOut
-        p(style='color: green') #{loggedOut}
-    if editDelete
-        p(style='color: red') #{editDelete}
-    
-    h1 Sign in
-    form(action ='/login', method = 'post')
-        label(for="username") Username
-        br
-        input( type="text" name="username" required )
-        label(for="password") Password
-        br
-        input(name = "password" type = "password" required)
-        button(type="submit") Sign in
+    div.container.mt-4
+        if created
+            p.text-success #{created}
+        if error
+            p.text-danger #{error} 
+        if loggedOut
+            p.text-success #{loggedOut}
+        if editDelete
+            p.text-danger #{editDelete}
 
-    a(href='/') Nevermind
-    br
-    span Don't have an account yet? 
-    a(href="/signup") Sign up here!
+        h1.text-primary Sign In
+        form(action='/login', method='post')
+            div.mb-3
+                label.form-label(for='username') Username
+                input.form-control(type='text' name='username' placeholder='Enter your username' required)
 
+            div.mb-3
+                label.form-label(for='password') Password
+                input.form-control(type='password' name='password' placeholder='Enter your password' required)
+
+            div.d-flex.justify-content-start.gap-2
+                button.btn.btn-primary(type='submit') Sign in
+                a.btn.btn-secondary(href='/') Nevermind
+            br
+        
+        div.mt-3
+            span Don't have an account yet? 
+            a(href='/signup') Sign up here!
