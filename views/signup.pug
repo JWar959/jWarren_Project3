@@ -2,32 +2,40 @@ extends layout.pug
 
 block content
     if error
-       p(style='color: red')= error
+       p.text-danger=error
 
-    h1 Sign up
-    p Please select a username, and a password. Don't be shy about any password rules here, we don't really care much about protecting your information - so helloworld is just fine by us!
-    
-    form(action='/signup', method = 'post')
-        label(for='firstName') First Name
-        input(type="text" name="firstName")
+    div.container.mt-4
+        h1.text-primary Sign Up
+        p.text-muted Please select a username and password. Don't worry about complex rules here even 'helloworld' is fine!
 
-        label( for="lastName") Last Name 
-        input(type='text' name = 'lastName')
-        hr
+        form(action='/signup', method='post')
+            div.mb-3
+                label.form-label(for='firstName') First Name
+                input.form-control(type='text' name='firstName' placeholder = 'Enter your first name')
 
-        label( for='usernameTemp') Username
-        input( type = 'text' name = 'usernameTemp')
+            div.mb-3
+                label.form-label(for='lastName') Last Name
+                input.form-control(type='text' name='lastName' placeholder = 'Enter your last name')
+            
+            div.mb-3
+                label.form-label(for='usernameTemp') Username
+                input.form-control(type='text' name='usernameTemp' placeholder = 'Enter your username')
 
-        label( for = 'passwordTemp') Password
-        input(type = 'password' name = 'passwordTemp')
+            div.mb-3
+                label.form-label(for='passwordTemp') Password
+                input.form-control(type='password' name='passwordTemp' placeholder = 'Enter your password')
 
-        label(for = 'confirmPassTemp') Confirm Password
-        input(type = 'password' name = 'confirmPassTemp')
-        hr
+            div.mb-3
+                label.form-label(for='confirmPassTemp') Confirm Password
+                input.form-control(type='password' name='confirmPassTemp' placeholder = 'Re-enter your password')
 
-        button(type = 'submit' name = 'newUserSubmit') Sign up
-    a(href='/') Nevermind
-    br
-    
-    span Already have an account? 
-    a(href = '/login') Sign in here!
+            hr
+
+            div.d-flex.flex-column
+                button.btn.mb-2.btn-primary(type='submit' name='newUserSubmit') Sign up
+                a.btn.btn-secondary(href='/') Nevermind
+            br
+        
+        div.mt-3
+            span Already have an account? 
+            a(href='/login') Sign in here!
