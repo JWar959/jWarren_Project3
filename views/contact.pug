@@ -12,14 +12,15 @@ block content
     div.container
         ul.list-group
             each c in contacts
-                li.list-group-item-action.d-flex.justify-content-between.align-items-center-left.mb-2
+                li.list-group-item-action.d-flex.flex-wrap.justify-content-between.mb-2
                     div
                         a(href=`/contact/${c.id}`) #{c.firstName} #{c.lastName}
                         br
                         span.text-muted #{c.phone} | #{c.email}
                         br
                         span.text-muted #{c.street}, #{c.city} #{c.state} #{c.zip} #{c.country}
-                    div.d-none.d-sm-block.d-flex.flex-column
+                  
+                    div.d-none.d-sm-flex.flex-column
                         label
                             input(type='checkbox', name='phoneCheckbox', checked=(c.contactByPhone === 1), disabled)
                             | Phone
