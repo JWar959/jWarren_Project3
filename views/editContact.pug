@@ -2,47 +2,69 @@ extends layout.pug
 
 block content
    if error
-      p(style='color: red')= error
+      p.text-danger= error
 
-   h1 Edit Contact 
-   form(action=`/contact/${contact.id}/edit` method='post')
-      label(for='firstName') First Name
-      input(type='text' name = 'firstName' value = contact.firstName required)
+   div.container.mt-4
+      h1.text-primary Edit Contact
+      form(action=`/contact/${contact.id}/edit` method='post')
+         div.container
+            div.row.mb-3
+               div.col-md-6
+                  div.mb-3
+                     label.form-label(for='firstName') First Name
+                     input.form-control(type='text' name='firstName' value=contact.firstName required)
 
-      label(for='lastName') Last Name
-      input(type = 'text' name = 'lastName' value = contact.lastName required)
+                  div.mb-3
+                     label.form-label(for='lastName') Last Name
+                     input.form-control(type='text', name='lastName' value=contact.lastName required)
 
-      label(for='phone') Phone
-      input(type = 'text' name = 'phone' value = contact.phone required)
+                  div.mb-3
+                     label.form-label(for='phone') Phone
+                     input.form-control(type='text' name='phone' value=contact.phone required)
 
-      label(for='email') Email
-      input(type = 'text' name='email' value = contact.email required)
+                  div.mb-3
+                     label.form-label(for='email') Email
+                     input.form-control(type='text' name='email' value=contact.email required)
 
-      label(for = 'street') Street
-      input(type = 'text' name = 'street' value = contact.street)
+               div.col-md-6      
+                  div.mb-3
+                     label.form-label(for='city') City
+                     input.form-control(type='text' name='city' value=contact.city)
 
-      label(for = 'city') City
-      input(type='text' name='city' value=contact.city)
+                  div.mb-3
+                     label.form-label(for='state') State
+                     input.form-control(type='text' name='state' value=contact.state)
 
-      label(for='state') State
-      input(type='text' name='state' value = contact.state)
+                  div.mb-3
+                     label.form-label(for='zip') Zip Code
+                     input.form-control(type='text' name='zip' value=contact.zip)
 
-      label(for = 'zip') Zip Code
-      input(type = 'text' name='zip' value = contact.zip)
+                  div.mb-3                  
+                     label.form-label(for='country') Country
+                     input.form-control(type='text' name='country' value=contact.country)     
+            
+            div.row
+               div.col-6
+                  div
+                     label.form-label(for='street') Street
+                     input.form-control(type='text' name='street' value=contact.street)
+         
+            hr
+            div.form-check.mb-2
+               input.form-check-input(type='checkbox' name='contactByEmail' id='contactByEmail' checked=(contact.contactByEmail === 1))
+               label.form-check-label(for='contactByEmail') Contact by Email
 
-      label(for='country') Country
-      input(type = 'text' name = 'country' value = contact.country)
-      hr
+            div.form-check.mb-2
+               input.form-check-input(type='checkbox' name='contactByPhone' id='contactByPhone' checked=(contact.contactByPhone === 1))
+               label.form-check-label(for='contactByPhone') Contact by Phone
 
-      label(for='contactByEmail') Contact by Email
-      input(type='checkbox' name='contactByEmail' checked = (contact.contactByEmail===1))
+            div.form-check.mb-2
+               input.form-check-input(type='checkbox' name='contactByMail' id='contactByMail' checked=(contact.contactByMail === 1))
+               label.form-check-label(for='contactByMail') Contact by Mail
 
-      label(for='contactByPhone') Contact by Phone
-      input(type = 'checkbox' name='contactByPhone' checked = (contact.contactByPhone === 1))
+            hr
 
-      label(for='contactByMail') Contact by Mail
-      input(type='checkbox' name='contactByMail' checked=(contact.contactByMail === 1))
-      hr
+            div.d-flex.justify-content-start.gap-2.mt-3
+               button.btn.btn-primary(type='submit') Update Contact
+               a.btn.btn-secondary(href='/') Cancel
 
-      button(type='submit') Update Contact
-      a(href='/') Cancel 
