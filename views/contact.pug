@@ -6,21 +6,31 @@ block content
               
     div.d-flex.justify-content-between.align-items-center.mb-3
         h2.text-primary.mb-0 Contact List
-    div.d-flex.justify-content-between.align-items-center.mb-4
         a.btn.btn-primary(href='newContact') Create New Contact
+
 
     div.container
         ul.list-group
             each c in contacts
-                li.list-group-item-action.d-flex.flex-wrap.justify-content-between.mb-2
-                    div
+                li.list-group-item.d-flex.flex-column.flex-md-row.justify-content-between.align-items-start
+                    div.d-flex.flex-column.w-100.w-md-25
                         a(href=`/contact/${c.id}`) #{c.firstName} #{c.lastName}
                         br
-                        span.text-muted #{c.phone} | #{c.email}
+                    div.d-flex.flex-column.w-100.w-md-25
+                        span.text-muted #{c.phone}
                         br
-                        span.text-muted #{c.street}, #{c.city} #{c.state} #{c.zip} #{c.country}
-                  
-                    div.d-none.d-sm-flex.flex-column
+                        span.text-muted #{c.email}
+                        br
+                    div.d-flex.flex-column.w-100.w-md-25
+                        span.text-muted #{c.street}
+                        br
+                        span.text-muted #{c.city}, #{c.state}
+                        br
+                        span.text-muted #{c.zip}
+                        br
+                        span.text-muted #{c.country}
+                        br
+                    div.d-flex.flex-column.w-100.w-md-25.p-2
                         label
                             input(type='checkbox', name='phoneCheckbox', checked=(c.contactByPhone === 1), disabled)
                             | Phone
@@ -32,3 +42,4 @@ block content
                         label
                             input(type='checkbox', name='mailCheckBox', checked=(c.contactByMail === 1), disabled)
                             | Mail
+                            br
