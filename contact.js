@@ -83,7 +83,9 @@ app.use((req, res, next) => {
     if (req.session.user) {
         res.locals.user = {
             id: req.session.user.id,
-            email: req.session.user.email
+            email: req.session.user.email,
+            firstName: req.session.user.firstName,
+            lastName: req.session.user.lastName
         };
     }
     next();

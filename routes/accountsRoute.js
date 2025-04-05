@@ -54,7 +54,10 @@ router.post('/login', async (req, res) => {
             // Successful login
             req.session.user = {
                 id: user.id,
-                username: user.username
+                username: user.username,
+                firstName: user.firstName,
+                lastName: user.lastName
+
             };
             console.log('User logged in successfully!');
             res.redirect('/');
