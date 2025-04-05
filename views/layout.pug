@@ -1,0 +1,11 @@
+doctype html
+html
+    head
+        if user
+            a(href='/logout') Sign out
+        else
+            a(href='/login') Sign in
+            
+        title Contact List
+    body
+        block content
