@@ -1,17 +1,15 @@
 # jWarren_Project3
+John Warren
+CMPS-369
+Project 3
+
 Contact List Web Application (Project 3)
 
-Before running the project, you need to set up the environment variables. To do so, you must follow these steps:
+Before running the project, you need to ensure the environment variables are set up properly.
 
-1) Copy the example environment file
-
-cp .env.example .env
-
-2) Ensure that the .env file contains the following:
+1) Ensure that the .env file contains the following:
 
 DBPATH=./contacts.db
-
-3) Once the .env file is created, you can proceed with the installation and running steps below.
 
 Installing and Running
 
