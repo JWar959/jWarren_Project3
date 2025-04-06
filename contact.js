@@ -10,6 +10,11 @@ Web Application Development
 Project 2
 */
 
+if (!process.env.DBPATH) {
+    console.error("Error: DBPATH not specified in the .env file.");
+    process.exit(1);
+}
+
 const db = new Database();
 db.initialize().then( async () => {
 
