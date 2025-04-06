@@ -11,27 +11,32 @@ block content
         form(action='/signup', method='post')
             div.mb-3
                 label.form-label(for='firstName') First Name
-                input.form-control(type='text' name='firstName' placeholder = 'Enter your first name')
+                div.col-md-6
+                    input.form-control(type='text' name='firstName' placeholder = 'Enter your first name')
 
             div.mb-3
                 label.form-label(for='lastName') Last Name
-                input.form-control(type='text' name='lastName' placeholder = 'Enter your last name')
+                div.col-md-6
+                    input.form-control(type='text' name='lastName' placeholder = 'Enter your last name')
             
             div.mb-3
                 label.form-label(for='usernameTemp') Username
-                input.form-control(type='text' name='usernameTemp' placeholder = 'Enter your username')
+                div.col-md-6
+                    input.form-control(type='text' name='usernameTemp' placeholder = 'Enter your username')
 
             div.mb-3
                 label.form-label(for='passwordTemp') Password
-                input.form-control(type='password' name='passwordTemp' placeholder = 'Enter your password')
+                div.col-md-6
+                    input.form-control(type='password' name='passwordTemp' placeholder = 'Enter your password')
 
             div.mb-3
                 label.form-label(for='confirmPassTemp') Confirm Password
-                input.form-control(type='password' name='confirmPassTemp' placeholder = 'Re-enter your password')
+                div.col-md-6
+                    input.form-control(type='password' name='confirmPassTemp' placeholder = 'Re-enter your password')
 
             hr
 
-            div.d-flex.flex-column
+            div.d-flex.flex-column.col-md-2
                 button.btn.mb-2.btn-primary(type='submit' name='newUserSubmit') Sign up
                 a.btn.btn-secondary(href='/') Nevermind
             br
