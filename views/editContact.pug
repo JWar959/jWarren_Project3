@@ -30,7 +30,12 @@ block content
                      div.col-md-6
                         input.form-control(type='text' name='email' value=contact.email required)
 
-               div.col-md-6      
+               div.col-md-6
+                  div.mb-3
+                     label.form-label(for='street') Street
+                     div.col-md-6
+                        input.form-control(type='text' name='street' value=contact.street)            
+
                   div.mb-3
                      label.form-label(for='city') City
                      div.col-md-6
@@ -49,14 +54,7 @@ block content
                   div.mb-3                  
                      label.form-label(for='country') Country
                      div.col-md-6
-                        input.form-control(type='text' name='country' value=contact.country)     
-            
-            div.row
-               div.col-6
-                  div
-                     label.form-label(for='street') Street
-                     div.col-md-6
-                        input.form-control(type='text' name='street' value=contact.street)
+                        input.form-control(type='text' name='country' value=contact.country)    
          
             hr
             div.form-check.mb-2
